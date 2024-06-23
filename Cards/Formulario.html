@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body id="cuerpoPagina">
+
+    <div class="container">
+
+        <div>
+            <button onclick="prender()" class="btn btn-primary">Prender</button>
+            <button onclick="apagar()" class="btn btn-danger">Apagar</button>
+
+            <img id="foco" src="https://media.istockphoto.com/id/1150776990/es/vector/%C3%B0%C3%B0%CE%BCd-%C3%B1%C3%B01-4%C3%B1%C3%B01-2%C3%B01-2%C3%B1%C3%B0-2.jpg?s=612x612&w=0&k=20&c=Dh7C9Wj838ZBRs8nrG2MA5aOVunvb7-tmgBiNCGhVt0=" width="300px" height="300px">
+        </div>
+
+        <div class="row">
+            <button id="btnFClaro" onclick="cambiarFondo('claro')" class="btn btn-default">
+                Fondo Claro
+            </button>
+            <button id="btnFOscuri" onclick="cambiarFondo('oscuro')" class="btn btn-dark">
+                Fondo Oscuro
+            </button>
+        </div>
+
+
+        <form>
+
+            <div class="form-group">
+                <label for="txtNombre">Nombre</label>
+                <input type="text" class="form-control" id="txtNombre" placeholder="Ingresar Usuario">
+            </div>
+
+            <div class="form-group">
+                <label for="txtApellido">Apellido</label>
+                <input type="text" class="form-control" id="txtApellido" placeholder="Ingresar Apellido">
+            </div>
+
+            <div class="form-group">
+                <label for="txtDocumento">Documento</label>
+                <input type="text" class="form-control" id="txtDocumento" placeholder="Ingresar Doumento">
+            </div>
+
+
+            <button onclick="procesar()" type="button" class="btn btn-primary">Procesar</button>
+            <button onclick="limpiar()" type="button" class="btn btn-danger">Limpiar</button>
+        </form>
+    </div>
+    
+</body>
+
+<script>
+
+    function cambiarFondo(fondo){
+        //alert("Fondo: "+ fondo)
+        let pagina = document.getElementById("cuerpoPagina");
+
+        if (fondo === "claro"){
+            pagina.style.backgroundColor="yellow";
+        } else{
+            pagina.style.backgroundColor="orange";
+        }
+    }
+
+
+    function procesar(){
+        let nombre, apellido, dni;
+
+        nombre= document.getElementById("txtNombre").value;
+        apellido= document.getElementById("txtApellido").value;
+        dni = document.getElementById("txtDocumento").value;
+
+        let mensaje = "Nombre: "+ nombre + " - Apellido: "+ apellido + "- Documento: " + dni;
+
+        let mensaje2 = ` 
+                        Nombre: ${nombre}
+                        Apellido: ${nombre}
+                        Documento: ${dni}
+                       `
+        alert(mensaje2);
+    }
+
+    function limpiar(){
+        document.getElementById("txtNombre").value = "";
+        document.getElementById("txtApellido").value = "";
+        document.getElementById("txtDocumento").value = "";
+    }
+
+    function prender(){
+
+        let foco = document.getElementById("foco");
+        foco.setAttribute("src", "prendido.jpg");
+        //alert(foco.getAttribute('src'));
+        
+    }
+
+    function apagar(){
+        let foco = document.getElementById("foco");
+        foco.setAttribute("src", "apagado.jpg");
+        
+
+    }
+
+    function SumaNumeros(a, b){
+        return a + b
+    }
+</script>
+</html>
